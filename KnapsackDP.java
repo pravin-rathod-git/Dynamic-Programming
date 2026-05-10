@@ -362,3 +362,5 @@ public class KnapsackDP {
         System.out.println("Maximum Profit = " + result);
     }
 }
+
+
