@@ -1,0 +1,256 @@
+🌟 How to Identify the Variation of Knapsack Problems in DP
+✅ STEP 1 — Read the Problem Carefully
+
+Identify:
+
+📦 What is given?
+Items
+Weights
+Coins
+Lengths
+Values
+🎯 What is asked?
+Maximum profit?
+Minimum cost?
+Possible or not?
+Number of ways?
+✅ STEP 2 — Ask the MOST IMPORTANT QUESTION
+🔥 “Can an item be used multiple times?”
+
+This identifies the main category.
+
+🟦 CASE A → Item Used ONLY ONCE
+➜ 0/1 Knapsack Family
+📌 Examples
+Subset Sum
+Equal Sum Partition
+Count Subsets
+Target Sum
+Minimum Subset Difference
+📌 Recurrence Pattern
+
+dp[i][j]=dp[i−1][j]ordp[i−1][j−w
+i
+	​
+
+]
+
+✅ Important Observation
+Uses i-1
+Means:
+current item cannot be reused
+🟩 CASE B → Item Used MULTIPLE TIMES
+➜ Unbounded Knapsack Family
+📌 Examples
+Coin Change
+Rod Cutting
+Minimum Coins
+Integer Break
+📌 Recurrence Pattern
+
+dp[i][j]=dp[i−1][j]ordp[i][j−w
+i
+	​
+
+]
+
+✅ Important Observation
+Uses i
+Means:
+same item can be reused infinitely
+✅ STEP 3 — Identify the Goal
+🟨 A. Maximization Problems
+🔑 Keywords
+Maximum profit
+Highest value
+Maximum revenue
+➜ DP Type
+✅ Optimization DP
+📌 Examples
+0/1 Knapsack
+Rod Cutting
+🟥 B. Minimization Problems
+🔑 Keywords
+Minimum coins
+Minimum cost
+Minimum difference
+➜ DP Type
+✅ Min DP
+📌 Examples
+Minimum Coins
+Minimum Subset Difference
+🟪 C. Boolean Problems
+🔑 Keywords
+Is it possible?
+Can we form?
+Exists or not?
+➜ DP Type
+✅ Boolean DP
+📌 Examples
+Subset Sum
+Equal Partition
+🟧 D. Counting Problems
+🔑 Keywords
+Number of ways
+Count subsets
+Total combinations
+➜ DP Type
+✅ Counting DP
+📌 Examples
+Coin Change Ways
+Count Subsets Sum K
+✅ STEP 4 — Identify the DP Dimensions
+
+Most Knapsack Problems use:
+
+dp[n][W]
+
+📌 Meaning
+n → number of items
+W → target/capacity
+✅ STEP 5 — Identify the Core Pattern
+🔥 “Take or Not Take”
+
+Every knapsack problem is based on:
+
+dp[i][j]=takeornot take
+
+🚀 MASTER IDENTIFICATION TABLE
+Problem	Item Usage	Goal	DP Type
+0/1 Knapsack	Once	Maximize	Optimization
+Subset Sum	Once	True/False	Boolean
+Equal Partition	Once	True/False	Boolean
+Count Subsets	Once	Count	Counting
+Target Sum	Once	Count	Counting
+Coin Change Ways	Infinite	Count	Counting
+Minimum Coins	Infinite	Minimize	Min DP
+Rod Cutting	Infinite	Maximize	Optimization
+⚡ FAST IDENTIFICATION TRICKS
+🔵 If Question Says:
+“Select”
+“Choose subset”
+“Partition array”
+➜ Mostly 0/1 Knapsack
+🟢 If Question Says:
+“Coins”
+“Cuts”
+“Ways to make amount”
+➜ Mostly Unbounded Knapsack
+🟣 If Question Says:
+“Possible?”
+“Can we achieve?”
+➜ Boolean DP
+🟠 If Question Says:
+“How many ways?”
+➜ Counting DP
+✅ HOW TO SOLVE ANY KNAPSACK PROBLEM
+🔹 1. Identify Type
+0/1
+Unbounded
+🔹 2. Identify Goal
+Maximize
+Minimize
+Count
+Boolean
+🔹 3. Define State
+
+Usually:
+
+dp[i][j]
+
+📌 Meaning
+First i items
+Target j
+🔹 4. Write Choices
+Take
+Not Take
+🔹 5. Write Recurrence Relation
+🔹 6. Define Base Cases
+✅ Boolean DP
+
+dp[i][0]=true
+
+✅ Counting DP
+
+dp[i][0]=1
+
+✅ Optimization DP
+
+dp[0][j]=0
+
+🌟 GOLDEN RULE
+🔥 If recurrence uses:
+✅ i-1
+
+➡️ Item used once
+
+✅ i
+
+➡️ Item reused multiple times
+
+🧠 MEMORY TREE
+KNAPSACK
+│
+├── 0/1 KNAPSACK
+│   ├── Subset Sum
+│   ├── Equal Partition
+│   ├── Count Subsets
+│   └── Target Sum
+│
+└── UNBOUNDED KNAPSACK
+    ├── Coin Change
+    ├── Rod Cutting
+    └── Minimum Coins
+🚀 INTERVIEW SHORTCUT
+
+Whenever you see a DP problem, ask:
+
+✅ 1. Can items repeat?
+✅ 2. Need Max/Min/Count/Bool?
+✅ 3. Is there a target/capacity?
+✅ 4. Is Take/Not-Take possible?
+
+If YES → It is probably Knapsack DP.
+
+📌 EXAMPLE IDENTIFICATION
+🟦 Example 1
+Question:
+
+“Can array be divided into two equal sum subsets?”
+
+Analysis:
+Use once
+True/False
+Target sum
+➜ Equal Partition → 0/1 Knapsack
+🟩 Example 2
+Question:
+
+“Minimum coins to make amount 11”
+
+Analysis:
+Reusable
+Minimize
+➜ Unbounded Knapsack
+🟨 Example 3
+Question:
+
+“Count ways to make amount 5”
+
+Analysis:
+Reusable
+Counting
+➜ Coin Change Ways
+🎯 FINAL MENTAL MODEL
+Take Item?
+   │
+   ├── YES
+   └── NO
+
+The only things changing are:
+
+🔁 Reuse allowed or not
+🎯 Max / Min / Count / Boolean
+📦 Meaning of target
+
+Once these are identified → the DP becomes easy.
